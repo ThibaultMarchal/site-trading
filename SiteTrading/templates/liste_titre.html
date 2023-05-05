@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{%for titre in titres%}
+    <button type="button" class="btn btn-dark p-1 btn-block">
+    <a href="{% url 'home_titre' titre.ticker%}">
+        <div class="row">
+        <div class="col-md-4 mr-auto">
+            <p class="text-white">
+                {{titre.name}}
+            </p>
+        </div>
+        <div class="col-md-4">
+     <p class="text-right">
+        {%if titre.difference > 0 %}
+        <span class="badge badge-success">+{{titre.difference}}%</span>
+    {%endif%}
+    {%if titre.difference < 0 %}
+        <span class="badge badge-danger">{{titre.difference}}%</span>
+    {%endif%}
+    
+    </p>
+    </div>
+</div>
+    <a/>
+    </button>
+    <br>
+{%endfor%}
+
+{% endblock %}

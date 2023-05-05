@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% for changes in change %}
+      <div class="card text-white bg-dark " style="">
+        <div class="card-body">
+        
+
+          
+          <h2 class="card-title">
+            {{changes.1.titre_action}}</h2>
+          <p class="">somme mis en jeu: {{changes.1.value}}
+            
+          </p>
+
+          
+          <p class=""> 
+            {%if changes.0 > 0 %}
+        <span class="badge badge-success">+{{changes.0}} eur</span>
+            {%endif%}
+            {%if changes.0 < 0 %}
+        <span class="badge badge-danger">{{changes.0}} eur</span>
+            {%endif%}
+            {%if changes.0 == 0 %}
+        <span class="badge badge badge-light">{{changes.0}} eur</span>
+            {%endif%}
+
+            
+          </p>
+          <a href="{% url 'delete' changes.1.id%}">Sortir</a>
+
+        </div>
+      </div>
+      <br>
+    {%endfor%}
+{% endblock %}

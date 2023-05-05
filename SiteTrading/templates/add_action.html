@@ -1,0 +1,30 @@
+
+{% extends "titre.html" %}
+{% block add %}
+
+<form action="{%url 'add_action' titre.ticker%}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <center>
+    <label for="value">Valeurs: </label>
+    </center>
+    <input  id="value" class="form-control form-control-sm" type="number" name="value" maxlength="100" required>
+  <center>
+    <div class="form-row">
+    <div class="col">
+
+        <input type="radio" id="buy" name="type" value="buy"
+               checked>
+        <label for="buy">Buy</label>
+      </div>
+  
+      <div class="col">
+        <input type="radio" id="sell" name="type" value="sell">
+        <label for="sell">Sell</label>
+      </div>
+    </div>
+    
+    <input type="submit" value="Submit">
+
+    </center>
+{% endblock %}
